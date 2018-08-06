@@ -46,7 +46,6 @@ class MarkovChain:
         chooses random word from the dictionary weighted
         by probability
         """
-        print(self.uniqueWordDict)
         return random.choice(  # Magic
             [key for key, value in self.uniqueWordDict[prev_word].items()
              for x in range(value)])
