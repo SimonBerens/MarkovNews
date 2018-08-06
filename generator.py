@@ -3,13 +3,7 @@ import os
 from web_scrape import get_text
 from markov_chain import MarkovChain
 from constants import *
-from flask import Flask
-from jinja2 import Environment, PackageLoader, select_autoescape
-
-env = Environment(
-    loader=PackageLoader('generator', 'templates'),
-    autoescape=select_autoescape(['html'])
-)
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
@@ -36,6 +30,4 @@ def news():
         summary_matrix = MarkovChain(json_str=f.read())
     f.close()
 
-    return env.get_template("index.html").render(
-        headline=headline_matrix.generate_chain(), summary=summary_matrix.generate_chain())
-
+    return render_template("index.html", headline=headline_matrix.generate_chain(), summary=summary_matrix.generate_chain())
