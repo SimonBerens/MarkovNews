@@ -1,6 +1,5 @@
 import random
 import json
-from numpy.ma import arange
 
 
 class MarkovChain:
@@ -25,17 +24,10 @@ class MarkovChain:
             if word not in self.uniqueWordDict:
                 self.uniqueWordDict[word] = {}
             if word not in self.uniqueWordDict[prev_word]:
-                self.uniqueWordDict[prev_word][word] = 1.0
+                self.uniqueWordDict[prev_word][word] = 1
             else:
-                self.uniqueWordDict[prev_word][word] += 1.0
+                self.uniqueWordDict[prev_word][word] += 1
             prev_word = word
-        # Calculate probability for every word
-        for word_list in self.uniqueWordDict.values():
-            total_tally = 0.0
-            for tally in word_list.values():
-                total_tally += tally
-            for word, tally in word_list.items():
-                word_list[word] = tally / total_tally
 
     def generate_chain(self):
         """
@@ -54,9 +46,10 @@ class MarkovChain:
         chooses random word from the dictionary weighted
         by probability
         """
+        print(self.uniqueWordDict)
         return random.choice(  # Magic
             [key for key, value in self.uniqueWordDict[prev_word].items()
-             for x in arange(0, value, len(self.uniqueWordDict[prev_word]) * 10)])
+             for x in range(value)])
 
     def to_json(self):
         return json.dumps(self.uniqueWordDict)
