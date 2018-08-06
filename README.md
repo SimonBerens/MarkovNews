@@ -1,2 +1,2 @@
 # MarkovNews
-Markov chain generated news
+Flask website that on load generates a headline and a summary for a news article using markov chains
