@@ -30,4 +30,10 @@ def news():
         summary_matrix = MarkovChain(json_str=f.read())
     f.close()
 
-    return render_template("index.html", headline=headline_matrix.generate_chain(), summary=summary_matrix.generate_chain())
+    return render_template("index.html", headline=headline_matrix.generate_chain(),
+                           summary=summary_matrix.generate_chain())
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template("404.html"), 404
