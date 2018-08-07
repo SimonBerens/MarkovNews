@@ -34,7 +34,7 @@ def news():
                            summary=summary_matrix.generate_chain())
 
 
-@app.route("/more")
+@app.route("/about")
 def about():
     return render_template("about.html")
 
