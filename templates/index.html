@@ -3,7 +3,9 @@
 <head>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
@@ -13,18 +15,27 @@
     <link rel="shortcut icon" href="https://imgur.com/MLrACTC.png">
 </head>
 <body style="text-align: center; padding: 5%">
-<div style="margin: 0 15%; padding: 0;">
+<div class="markov" style="margin: 0 15%; padding: 0;">
     <h1 style="font-family: 'Poiret One', cursive; font-weight: bolder; font-size: 1000%;"> Markov News </h1>
     <hr>
 </div>
-<div style="margin-left: 20%; margin-right: 20%; padding: 0; font-family: 'Playfair Display', serif;">
-    <h3 style="font-size: 300%; margin: 2% 6%"> {{ headline }} </h3>
+<div class="news" style="margin-left: 20%; margin-right: 20%; padding: 0; font-family: 'Playfair Display', serif;">
+    <h4 class="headline" style="font-size: 300%; margin: 2% 6%"> {{ headline }} aaaaaa aaaaaaaaaa aaaaaaaaaaaa aaaaa aaaaaaaaaaa aa </h4>
     <hr>
-    <p style="margin: 2% 6%; opacity: 50%;">
+    <p class="summary" style="margin: 2% 6%; color: dimgrey">
         {{ summary }}
     </p>
     <input type="button" class="btn btn-outline-primary" value="Read More" onclick="location.href = '/more';">
     <input type="button" class="btn btn-outline-primary" value="Other News" onclick="location.href = '/';">
 </div>
+<!-- Mobile Adjustments-->
+<script>
+    if ($(window).width() < 800) {
+        $(".markov").css({"margin": 0, "font-size": "50%"});
+        $(".news").css("margin", 0);
+        $(".headline").css("font-size", "175%");
+        $(".summary").css("font-size", "125%");
+    }
+</script>
 </body>
 </html>
