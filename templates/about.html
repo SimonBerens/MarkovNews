@@ -97,7 +97,9 @@
         crossorigin="anonymous"></script>
 <!-- Mobile Adjustments-->
 <script>
-    $("#main").css("padding", "5%");
+    if ($(window).width() < 1000) {
+        $("#main").css("padding", "5%");
+    }
 </script>
 </body>
 </html>
