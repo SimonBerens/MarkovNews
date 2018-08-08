@@ -68,11 +68,14 @@
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                 <div class="card-body">
                     <p>
-                        Markov chains are giant probability matrices. In the case of text, they create
-                        a square matrix of size however many unique words there are. Then, for each
+                        Markov chains are giant matrices. In the case of text, they create
+                        a square* matrix of size however many unique words there are. Then, for each
                         word in a row, they count how many times that word has followed the word of the
                         row. To generate a chain, you randomly select a word based on how many times it has
                         appeared after the current word you just generated.
+                        <br>
+                        * In reality, most of the values in the matrix would be 0 so you would optimize it
+                        by using a hash map of arrays or something similar, and add words in as you go along.
                     </p>
                 </div>
             </div>
