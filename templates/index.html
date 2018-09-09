@@ -13,6 +13,8 @@
     <meta charset="UTF-8">
     <title>Markov News</title>
     <link rel="shortcut icon" href="https://imgur.com/MLrACTC.png">
+    <!-- SCALING -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body style="text-align: center; padding: 5%">
 <div class="markov" style="margin: 0 15%; padding: 0;">
@@ -28,20 +30,5 @@
     <input type="button" class="btn btn-outline-primary" value="About" onclick="location.href = '/about';">
     <input type="button" class="btn btn-outline-primary" value="Other News" onclick="location.href = '/';">
 </div>
-<!-- Mobile Adjustments-->
-<script>
-    if ($(window).width() < 1000) {
-        $(".markov").css({"margin": 0, "font-size": "75%"});
-        $(".news").css("margin", 0);
-        $(".headline").css("font-size", "400%");
-        $(".summary").css({"font-size": "300%", "margin-bottom": "3%"} );
-        $("input").css({ "padding": "1% 2%",
-            "font-size": "250%",
-            "border-radius": "10px",
-            "border-width": "2px",
-            "margin": "1px 3px"
-        })
-    }
-</script>
 </body>
 </html>
