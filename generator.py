@@ -41,7 +41,7 @@ def about():
 
 @app.route('/static/<path:path>')
 def styles(path):
-    return send_from_directory('js', path)
+    return send_from_directory('static', path)
 
 
 @app.errorhandler(404)
