@@ -3,7 +3,7 @@ import os
 from web_scrape import get_text
 from markov_chain import MarkovChain
 from constants import *
-from flask import Flask, render_template
+from flask import Flask, render_template, send_from_directory
 
 app = Flask(__name__)
 
@@ -37,6 +37,11 @@ def news():
 @app.route("/about")
 def about():
     return render_template("about.html")
+
+
+@app.route('/static/<path:path>')
+def styles(path):
+    return send_from_directory('js', path)
 
 
 @app.errorhandler(404)
